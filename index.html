@@ -1,1 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EstoEsPeli | Peluquería en Madrid</title>
 
+  <link href="https://www.google.com/imgres?q=imagen%20cortar%20pelo&imgurl=https%3A%2F%2Fimages.ctfassets.net%2Fmslkg1ky64dh%2F1TIAaoQafm0G8ckKKCQ8EG%2Fa15e145f4c0dc8db5996d6aa04883e7e%2Fbraun_the-world-of-styling-trimming_hair-clippers-how-to-best-do-the-job_first-cut_desktop.jpg&imgrefurl=https%3A%2F%2Fes.braun.com%2Fes-es%2Fmale-grooming%2Fhairstyling-for-men%2Fhair-clippers-how-to-best-do-the-job%3Fsrsltid%3DAfmBOooo35Q38FlTGvJg_7bBCL7oOafRgsexa3WDMLv9Gs4EvSKy45c_&docid=XxlGFQYlxVTbfM&tbnid=35QpZNENCOUuGM&vet=12ahUKEwjGlse4uomUAxXONPsDHSxEMhUQnPAOegQIIxAB..i&w=1600&h=800&hcb=2&ved=2ahUKEwjGlse4uomUAxXONPsDHSxEMhUQnPAOegQIIxAB" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #111;
+      --accent: #c7a27c;
+      --text: #fff;
+      --muted: rgba(255,255,255,0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: #000;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 80px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* HERO CON SLIDER */
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+
+    .slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fadeSlide 18s infinite;
+    }
+
+    .slide:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438');
+      animation-delay: 0s;
+    }
+
+    .slide:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9');
+      animation-delay: 6s;
+    }
+
+    .slide:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e');
+      animation-delay: 12s;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      30% { opacity: 1; }
+      35% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: var(--muted);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    /* BOTÓN */
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 26px;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* SECCIONES */
+    section {
+      background: #fff;
+      color: #222;
+    }
+
+    section.alt {
+      background: #f7f7f7;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      color: #666;
+    }
+
+    /* SERVICIOS */
+    .services {
+      display: grid;
+      gap: 25px;
+    }
+
+    .service {
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+      transition: 0.3s;
+    }
+
+    .service:hover {
+      transform: translateX(6px);
+    }
+
+    /* LISTA */
+    .reasons li {
+      list-style: none;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .reasons li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      background: #111;
+      color: #fff;
+    }
+
+    /* ANIMACIÓN SCROLL */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero visible">
+    <div class="slides">
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
+
+    <div class="container">
+      <h1>EstoEsPeli: tu corte de siempre, con estilo de ahora</h1>
+      <p>Cuidamos tu look sin complicaciones: vienes, te relajas y sales perfecto.</p>
+      <a class="btn" href="https://wa.me/34987546234" target="_blank">
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section>
+    <div class="container">
+      <h2>Sobre nosotros</h2>
+      <p>En EstoEsPeli somos una peluquería de barrio en Madrid donde nos gusta hacer las cosas bien y sin prisas.</p>
+      <p>Escuchamos lo que quieres y te aconsejamos para que salgas contento de verdad.</p>
+      <p>Aquí no eres uno más: eres cliente de confianza.</p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="alt">
+    <div class="container">
+      <h2>Servicios</h2>
+      <div class="services">
+        <div class="service">
+          <h3>Corte</h3>
+          <p>Cortes actuales o clásicos adaptados a ti.</p>
+        </div>
+        <div class="service">
+          <h3>Lavado</h3>
+          <p>Limpieza y preparación perfecta del cabello.</p>
+        </div>
+        <div class="service">
+          <h3>Degradado</h3>
+          <p>Acabados limpios y modernos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAZONES -->
+  <section>
+    <div class="container">
+      <h2>Por qué elegirnos</h2>
+      <ul class="reasons">
+        <li>Trato cercano</li>
+        <li>Detalle en cada corte</li>
+        <li>Rápido y sin complicaciones</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="alt">
+    <div class="container">
+      <h2>Cómo llegar</h2>
+      <p><strong>Dirección:</strong> Madrid</p>
+      <p><strong>Horario:</strong> 12:00 - 19:00</p>
+      <a class="btn" href="https://wa.me/34987546234">Escríbenos por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="footer">
+    <div class="container">
+      <h2>Pide tu cita y sal con el corte que te apetece de verdad</h2>
+      <a class="btn" href="https://wa.me/34987546234">Reservar ahora</a>
+    </div>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const reveal = () => {
+      sections.forEach(sec => {
+        if (sec.getBoundingClientRect().top < window.innerHeight - 80) {
+          sec.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", reveal);
+  </script>
+
+</body>
+</html>
